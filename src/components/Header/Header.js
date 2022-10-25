@@ -1,8 +1,12 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/UserContext/AuthProvider";
 import logo from "../../images/logo.png";
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext)
   return (
     <div>
       <div className="navbar bg-base-100 shadow-lg">
@@ -52,7 +56,13 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="btn"><Link to='/login'>Log In</Link></button>
+          {user ? <>
+            <img className="w-16 mr-3" title={user?.displayName} src={user?.photoURL} alt="" />
+            <button className="btn">Log out</button>
+          </>
+          :
+            <button className="btn"><Link to='/login'>Log In</Link></button>
+            }
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { AuthContext } from "../../../contexts/UserContext/AuthProvider";
 const SignUp = () => {
     const [error, setError] = useState('')
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUser} = useContext(AuthContext);
     
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -20,6 +20,7 @@ const SignUp = () => {
         createUser(email, password)
         .then(res => {
             const user = res.user;
+            updateProfile(name, photoUrl)
             setError('')
             form.reset()
             console.log(user)
@@ -27,6 +28,18 @@ const SignUp = () => {
         .catch(e=> {
             setError(e.message)
         })
+       
+
+    }
+
+    const updateProfile = (name, photoUrl) => {
+        updateUser(name, photoUrl)
+        .then(() => {
+            setError('')
+          })
+          .catch((error) => {
+            setError(error.message)
+          });
     }
 
 
