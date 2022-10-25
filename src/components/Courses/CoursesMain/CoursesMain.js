@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const CoursesMain = ({ c }) => {
@@ -15,7 +16,7 @@ const CoursesMain = ({ c }) => {
           <p>{description.slice(0, 200) + ".."}</p>
           <div className="card-actions justify-between items-center">
             <p className="font-bold text-xl text-red-500"><small>Price: {price}</small></p>
-            <button className="btn btn-primary">Details</button>
+            <button className="btn btn-primary"><Link to={`/classes/${id}`}>Details</Link></button>
           </div>
         </div>
       </div>
