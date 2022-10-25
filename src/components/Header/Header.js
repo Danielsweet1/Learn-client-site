@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext/AuthProvider";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.jpg";
 
 const Header = () => {
   const [theme, setTheme] = useState(true);
@@ -45,7 +45,10 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <img className="w-24" src={logo} alt="" />
+          <div  className="flex items-center">
+          <img className="w-16" src={logo} alt="" />
+          <h2 className="text-xl ml-2 text-orange-400">LEARN</h2>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -67,7 +70,7 @@ const Header = () => {
           {user?.email ? (
             <>
               <img
-                className="w-16 mr-3"
+                className="w-12 rounder-circle mr-3"
                 title={user?.displayName}
                 src={user?.photoURL}
                 alt=""

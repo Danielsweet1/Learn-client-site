@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { FaDownload } from 'react-icons/fa';
 
 const CourseDetails = () => {
 
@@ -7,10 +8,11 @@ const CourseDetails = () => {
     const {id, name, img, description, price, rating} = details
     return (
         <div className='m-8  border p-6'>
-            <img className=' h-96 w-full border mx-auto' src={img} alt="" />
-            <div className='m-4'>
-                <p className='text-3xl font-bold'>{name}</p>
+            <div className='m-4 flex justify-between items-center'>
+                <p className='text-3xl font-bold'> {name}</p>
+                <FaDownload className='text-3xl text-blue-400'/>
             </div>
+            <img className=' h-96 w-full border mx-auto' src={img} alt="" />
             <p>{description}</p>
             <div className='mt-6'>
                 <p className='text-xl font-bold text-red-500 mb-2'>Course Fee: {price}</p>

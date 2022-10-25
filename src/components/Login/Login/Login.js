@@ -92,9 +92,11 @@ const Login = () => {
               <div className="form-control mt-2 mb-5">
                 <button className="btn btn-primary">Login</button>
               </div>
-              <button  className="btn btn-outline inline" onClick={handleGoogle}>Google</button>
-              <button className="btn btn-outline inline" onClick={handleGithub}>Github</button>
-              <p>
+              <div className="flex justify-center "> 
+              <button  className="btn btn-outline mx-2  btn-info" onClick={handleGoogle}>Google</button>
+              <button className="btn btn-outline mx-2" onClick={handleGithub}>Github</button>
+              </div>
+              <p className="text-blue-400 text-center">
                 <small>
                   Create A <Link to="/signup">New Account</Link>
                 </small>
