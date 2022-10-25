@@ -6,7 +6,7 @@ import { AuthContext } from "../../../contexts/UserContext/AuthProvider";
 
 const Login = () => {
     const [error, setError] = useState('')
-  const { login} = useContext(AuthContext);
+  const { login,githubSignIn, googleSignIn} = useContext(AuthContext);
 
 
   const handleSubmit = (e) => {
@@ -26,6 +26,30 @@ const Login = () => {
         setError(e.message);
       });
   };
+
+
+  const handleGoogle = () => {
+    googleSignIn()
+    .then(res=> {
+      const user = res.user
+      setError('')
+      console.log(user)
+    })
+    .catch(e=> {
+      setError(e.message)
+    })
+  }
+  const handleGithub = () => {
+    githubSignIn()
+    .then(res=> {
+      const user = res.user
+      setError('')
+      console.log(user)
+    })
+    .catch(e=> {
+      setError(e.message)
+    })
+  }
   return (
     <div>
       <form onSubmit={handleSubmit} className="hero min-h-screen bg-base-200">
@@ -65,9 +89,11 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-2 mb-5">
                 <button className="btn btn-primary">Login</button>
               </div>
+              <button  className="btn btn-outline inline" onClick={handleGoogle}>Google</button>
+              <button className="btn btn-outline inline" onClick={handleGithub}>Github</button>
               <p>
                 <small>
                   Create A <Link to="/signup">New Account</Link>

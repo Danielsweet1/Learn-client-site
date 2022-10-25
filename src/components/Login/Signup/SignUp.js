@@ -28,7 +28,7 @@ const SignUp = () => {
         .catch(e=> {
             setError(e.message)
         })
-       
+        
 
     }
 

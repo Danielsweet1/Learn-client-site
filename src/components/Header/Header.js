@@ -1,12 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext/AuthProvider";
 import logo from "../../images/logo.png";
 
 const Header = () => {
+  const [theme, setTheme] = useState(true);
+  const { user, logout } = useContext(AuthContext);
 
-    const {user} = useContext(AuthContext)
   return (
     <div>
       <div className="navbar bg-base-100 shadow-lg">
@@ -33,10 +35,13 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to='/courses'>Courses</Link>
+                <Link to="/courses">Courses</Link>
               </li>
               <li>
-                <Link to='/blog'>Blog</Link>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li onClick={() => setTheme(!theme)}>
+                {theme ? <button>Light</button> : <button>Dark</button>}
               </li>
             </ul>
           </div>
@@ -48,21 +53,34 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='/courses'>Courses</Link>
+              <Link to="/courses">Courses</Link>
             </li>
             <li>
-            <Link to='/blog'>Blog</Link>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li onClick={() => setTheme(!theme)}>
+              {theme ? <button >Light</button> : <button >Dark</button>}
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? <>
-            <img className="w-16 mr-3" title={user?.displayName} src={user?.photoURL} alt="" />
-            <button className="btn">Log out</button>
-          </>
-          :
-            <button className="btn"><Link to='/login'>Log In</Link></button>
-            }
+          {user?.email ? (
+            <>
+              <img
+                className="w-16 mr-3"
+                title={user?.displayName}
+                src={user?.photoURL}
+                alt=""
+              />
+              <button onClick={logout} className="btn">
+                Log out
+              </button>
+            </>
+          ) : (
+            <button className="btn">
+              <Link to="/login">Log In</Link>
+            </button>
+          )}
         </div>
       </div>
     </div>
