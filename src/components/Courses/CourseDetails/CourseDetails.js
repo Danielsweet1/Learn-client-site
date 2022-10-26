@@ -14,7 +14,7 @@ const CourseDetails = () => {
         <p className="text-3xl font-bold"> {name}</p>
         <Pdf targetRef={ref} filename="code-example.pdf">
           {({ toPdf }) => (
-            <FaDownload onClick={toPdf} className="text-3xl text-blue-400" />
+            <FaDownload onClick={toPdf} className="text-3xl text-blue-400 hover:cursor-pointer " />
           )}
         </Pdf>
       </div>
