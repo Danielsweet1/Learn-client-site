@@ -1,8 +1,10 @@
 import React from "react";
+import blog from '../../images/blog.jpg'
 
 const Blog = () => {
   return (
     <div>
+      <img className="w-full h-96" src={blog} alt="" />
       <div className="border shadow-md m-5 rounded p-3">
         <h2 className="text-3xl">1. what is cors?</h2>
         <p>

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext/AuthProvider";
 import logo from "../../images/logo.jpg";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const [theme, setTheme] = useState(true);
@@ -41,6 +42,9 @@ const Header = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li>
                 <Link to="/signup">Signup</Link>
               </li>
               <li onClick={() => setTheme(!theme)}>
@@ -65,6 +69,9 @@ const Header = () => {
               <Link to="/blog">Blog</Link>
             </li>
             <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
+            <li>
               <Link to="/signup">Signup</Link>
             </li>
             <li onClick={() => setTheme(!theme)}>
@@ -76,7 +83,7 @@ const Header = () => {
           {user?.email ? (
             <>
               <img
-                className="w-12 rounder-circle mr-3"
+                className="w-12  mr-3"
                 title={user?.displayName}
                 src={user?.photoURL}
                 alt=""
@@ -86,9 +93,12 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <button className="btn btn-outline btn-primary">
-              <Link to="/login">Log In</Link>
-            </button>
+            <>
+              <FaUserCircle className="text-3xl" />
+              <button className="btn btn-outline btn-primary ml-3">
+                <Link to="/login">Log In</Link>
+              </button>
+            </>
           )}
         </div>
       </div>

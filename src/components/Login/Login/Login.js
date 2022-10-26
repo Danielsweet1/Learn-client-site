@@ -1,12 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/UserContext/AuthProvider";
 
 const Login = () => {
     const [error, setError] = useState('')
-  const { login,githubSignIn, googleSignIn} = useContext(AuthContext);
+    const { login,githubSignIn, googleSignIn} = useContext(AuthContext);
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
+  
 
 
   const handleSubmit = (e) => {
@@ -21,6 +26,7 @@ const Login = () => {
         setError('')
         form.reset();
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((e) => {
         setError(e.message);
@@ -33,6 +39,7 @@ const Login = () => {
     .then(res=> {
       const user = res.user
       setError('')
+      navigate(from, { replace: true });
       console.log(user)
     })
     .catch(e=> {
@@ -44,6 +51,7 @@ const Login = () => {
     .then(res=> {
       const user = res.user
       setError('')
+      navigate(from, { replace: true });
       console.log(user)
     })
     .catch(e=> {
