@@ -1,3 +1,19 @@
+project Name: LEARN 
+live site: https://learn-site-17ec9.web.app/
+
+Features
+
+* Design by Tailwind css and DaisyUi
+* responsive navbar
+* on the left side of courses route displaying courses name by clicking them will will go  to   the course detail page
+* on course detail page there is an icon of download. by clicking on the icon it will start download the details of the course
+* after successfully logged in a person can check the get premium access route and purchase the course
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
