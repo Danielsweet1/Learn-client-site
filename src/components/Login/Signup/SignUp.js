@@ -102,7 +102,7 @@ const SignUp = () => {
                   required
                 />
                 <label className="label">
-                  <small><Link to='/login'>Already Have An Account?</Link></small>
+                  <small><Link to='/login'>Already Have An Account? <span className="text-blue-500">Login</span></Link></small>
                 </label>
               </div>
               <div className="form-control mt-6">

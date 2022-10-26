@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 text-blue-500 font-bold shadow-lg">
+      <div className="navbar bg-base-100 text-purple-500 font-bold shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,14 +40,17 @@ const Header = () => {
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
+              <li>
+                <Link to="/signup">Signup</Link>
+              </li>
               <li onClick={() => setTheme(!theme)}>
                 {theme ? <button>Light</button> : <button>Dark</button>}
               </li>
             </ul>
           </div>
-          <div  className="flex items-center">
-          <img className="w-16" src={logo} alt="" />
-          <h2 className="text-xl ml-2 text-orange-400">LEARN</h2>
+          <div className="flex items-center">
+            <img className="w-16" src={logo} alt="" />
+            <h2 className="text-xl ml-2 text-orange-400">LEARN</h2>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -61,8 +64,11 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
             <li onClick={() => setTheme(!theme)}>
-              {theme ? <button >Light</button> : <button >Dark</button>}
+              {theme ? <button>Light</button> : <button>Dark</button>}
             </li>
           </ul>
         </div>
@@ -75,12 +81,12 @@ const Header = () => {
                 src={user?.photoURL}
                 alt=""
               />
-              <button onClick={logout} className="btn">
+              <button onClick={logout} className="btn btn-outline btn-primary">
                 Log out
               </button>
             </>
           ) : (
-            <button className="btn">
+            <button className="btn btn-outline btn-primary">
               <Link to="/login">Log In</Link>
             </button>
           )}

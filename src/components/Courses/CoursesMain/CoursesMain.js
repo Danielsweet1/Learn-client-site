@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const CoursesMain = ({ c }) => {
-  const { id, name, img, description, price, rating } = c;
+  const { id, name, img, description, price } = c;
 
   return (
     <div >
